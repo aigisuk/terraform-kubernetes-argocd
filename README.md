@@ -1,5 +1,5 @@
-# Terraform Kubernetes ArgoCD Module
-A Terraform module to deploy ArgoCD on a Kubernetes Cluster.
+# Terraform Helm ArgoCD Module
+A Terraform module to deploy [ArgoCD](https://argoproj.github.io/cd/) on a Kubernetes Cluster using the [Helm Provider](https://registry.terraform.io/providers/hashicorp/helm).
 
 ![Concept Flow Illustration](https://res.cloudinary.com/qunux/image/upload/v1642563762/terraform_kubernetes_argocd_mtze07.svg)
 
