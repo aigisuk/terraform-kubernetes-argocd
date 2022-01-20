@@ -11,4 +11,5 @@ A Terraform module to deploy [ArgoCD](https://argoproj.github.io/cd/) on a Kuber
 | argocd_chart_version | Version of ArgoCD chart to install | string | `3.29.5` | no |
 | timeout_seconds | Helm chart deployment can sometimes take longer than the default 5 minutes. Set a custom timeout (secs) | number | `800` | no |
 | admin_password | Default Admin password | string | `argocd` | no |
+| insecure | Disable TLS on the ArogCD API Server? | bool | `false` | no |
 | values_file | Name of the ArgoCD helm chart values file to use | string | `values.yaml` | no |

@@ -21,6 +21,6 @@ resource "helm_release" "argocd" {
 
   set {
     name  = "server.extraArgs"
-    value = "{--insecure}"
+    value = var.insecure == false ? "" : "{--insecure}"
   }
 }

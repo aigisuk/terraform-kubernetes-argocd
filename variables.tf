@@ -28,3 +28,9 @@ variable "values_file" {
   type        = string
   default     = "values.yaml"
 }
+
+variable "insecure" {
+  type        = bool
+  description = "Disable TLS on the ArogCD API Server? (adds the --insecure flag to the argocd-server command)"
+  default     = false
+}
