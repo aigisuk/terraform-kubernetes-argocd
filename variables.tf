@@ -20,7 +20,7 @@ variable "timeout_seconds" {
 variable "admin_password" {
   description = "Default Admin Password"
   type        = string
-  default     = "argocd"
+  default     = ""
 }
 
 variable "values_file" {

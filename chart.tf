@@ -16,7 +16,7 @@ resource "helm_release" "argocd" {
 
   set_sensitive {
     name  = "configs.secret.argocdServerAdminPassword"
-    value = bcrypt(var.admin_password)
+    value = local.default_password
   }
 
   set {
