@@ -5,7 +5,7 @@ A Terraform module to deploy [ArgoCD](https://argoproj.github.io/cd/) on a Kuber
 
 ## Default Admin Password
 
-If the `admin_password` input variable is not set, the initial password for the `admin` user account is auto-generated and stored as clear text in the field `password` in a secret named `argocd-initial-admin-secret` in your Argo CD installation namespace. You can simply retrieve this password using `kubectl`[^1]:
+If the `admin_password` input variable is **not** set, the initial password for the `admin` user account is auto-generated and stored as clear text in the field `password` in a secret named `argocd-initial-admin-secret` in your Argo CD installation namespace. You can simply retrieve this password using `kubectl`[^1]:
 
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
@@ -22,6 +22,5 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 | insecure | Disable TLS on the ArogCD API Server? | bool | `false` | no |
 | values_file | Name of the ArgoCD helm chart values file to use | string | `values.yaml` | no |
 
-## Footnotes
 
 [^1]: [Login Using The CLI](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
