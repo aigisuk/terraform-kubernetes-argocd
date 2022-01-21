@@ -15,6 +15,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| release_name | Helm release name | string | `argocd` | no |
 | namespace | Namespace to install ArgoCD chart into (created if non-existent on target cluster) | string | `argocd` | no |
 | argocd_chart_version | Version of ArgoCD chart to install | string | `3.29.5` | no |
 | timeout_seconds | Helm chart deployment can sometimes take longer than the default 5 minutes. Set a custom timeout (secs) | number | `800` | no |

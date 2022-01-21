@@ -1,3 +1,8 @@
+variable "release_name" {
+  type        = string
+  description = "Helm release name"
+  default     = "argocd"
+}
 variable "namespace" {
   description = "Namespace to install ArgoCD chart into"
   type        = string
