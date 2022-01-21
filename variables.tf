@@ -1,3 +1,8 @@
+variable "release_name" {
+  type        = string
+  description = "Helm release name"
+  default     = "argocd"
+}
 variable "namespace" {
   description = "Namespace to install ArgoCD chart into"
   type        = string
@@ -7,7 +12,7 @@ variable "namespace" {
 variable "argocd_chart_version" {
   description = "Version of ArgoCD chart to install"
   type        = string
-  default     = "3.29.5" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
+  default     = "3.31.0" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
 }
 
 # Helm chart deployment can sometimes take longer than the default 5 minutes
@@ -20,7 +25,7 @@ variable "timeout_seconds" {
 variable "admin_password" {
   description = "Default Admin Password"
   type        = string
-  default     = "argocd"
+  default     = ""
 }
 
 variable "values_file" {

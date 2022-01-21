@@ -2,7 +2,7 @@
 resource "helm_release" "argocd" {
   namespace        = var.namespace
   create_namespace = true
-  name             = "v${replace(var.argocd_chart_version, ".", "-")}"
+  name             = var.release_name
   repository       = "https://argoproj.github.io/argo-helm"
   chart            = "argo-cd"
   version          = var.argocd_chart_version
@@ -16,7 +16,7 @@ resource "helm_release" "argocd" {
 
   set_sensitive {
     name  = "configs.secret.argocdServerAdminPassword"
-    value = bcrypt(var.admin_password)
+    value = local.default_password
   }
 
   set {
