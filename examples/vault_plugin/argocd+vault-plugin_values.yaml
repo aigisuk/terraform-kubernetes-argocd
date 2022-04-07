@@ -1,0 +1,42 @@
+# Custom values for ArgoCD
+
+server:
+  config:
+    configManagementPlugins: |
+      - name: argocd-vault-plugin
+        generate:
+          command: ["argocd-vault-plugin"]
+          args: ["generate", "./"]
+    url: https://argocd.colinwilson.uk # replace this with your own custom URL
+
+repoServer:
+  serviceAccount:
+    create: true
+    name: argocd-repo-server
+
+  envFrom:
+    - secretRef:
+        name: vault-configuration
+
+  initContainers:
+    - name: download-tools
+      image: alpine:3.8
+      command: [ sh, -c ]
+      args:
+        - wget -O argocd-vault-plugin
+          https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v1.10.1/argocd-vault-plugin_1.10.1_linux_amd64 &&
+          chmod +x argocd-vault-plugin && mv argocd-vault-plugin /custom-tools
+      volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
+
+  # -- Additional volumeMounts to the repo server main container
+  volumeMounts:
+    - name: custom-tools
+      mountPath: /usr/local/bin/argocd-vault-plugin
+      subPath: argocd-vault-plugin
+
+  # -- Additional volumes to the repo server pod
+  volumes:
+    - name: custom-tools
+      emptyDir: {}
