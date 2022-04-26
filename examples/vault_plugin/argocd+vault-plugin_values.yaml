@@ -16,7 +16,7 @@ repoServer:
 
   envFrom:
     - secretRef:
-        name: vault-configuration
+        name: vault-configuration # Secret containing your Vault authorisation credentials
 
   initContainers:
     - name: download-tools
