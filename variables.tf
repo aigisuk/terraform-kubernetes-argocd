@@ -12,7 +12,7 @@ variable "namespace" {
 variable "argocd_chart_version" {
   description = "Version of ArgoCD chart to install"
   type        = string
-  default     = "4.5.0" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
+  default     = "4.5.7" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
 }
 
 # Helm chart deployment can sometimes take longer than the default 5 minutes
