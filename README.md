@@ -21,10 +21,11 @@ Many ingress controllers require ArgoCD's API server be run with TLS disabled[^2
 |------|-------------|:----:|:-----:|:-----:|
 | release_name | Helm release name | string | `argocd` | no |
 | namespace | Namespace to install ArgoCD chart into (created if non-existent on target cluster) | string | `argocd` | no |
-| argocd_chart_version | Version of ArgoCD chart to install | string | `4.5.7` | no |
+| argocd_chart_version | Version of ArgoCD chart to install | string | `4.5.10` | no |
 | timeout_seconds | Helm chart deployment can sometimes take longer than the default 5 minutes. Set a custom timeout (secs) | number | `800` | no |
 | admin_password | Default Admin password | string | empty | no |
 | insecure | Disable TLS on the ArogCD API Server? | bool | `false` | no |
+| enable_dex | Enable Argo CD's Dex Server? | bool | `true` | no |
 | values_file | Name of the ArgoCD helm chart values file to use | string | `values.yaml` | no |
 
 

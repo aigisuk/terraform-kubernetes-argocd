@@ -23,4 +23,9 @@ resource "helm_release" "argocd" {
     name  = "server.extraArgs"
     value = var.insecure == false ? "" : "{--insecure}"
   }
+
+  set {
+    name  = "dex.enabled"
+    value = var.enable_dex == true ? true : false
+  }
 }
