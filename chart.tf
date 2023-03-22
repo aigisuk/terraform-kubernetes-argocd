@@ -16,12 +16,12 @@ resource "helm_release" "argocd" {
 
   set_sensitive {
     name  = "configs.secret.argocdServerAdminPassword"
-    value = local.default_password
+    value = var.admin_password == "" ? "" : bcrypt(var.admin_password)
   }
 
   set {
-    name  = "server.extraArgs"
-    value = var.insecure == false ? "" : "{--insecure}"
+    name  = "configs.params.server\\.insecure"
+    value = var.insecure == false ? false : true
   }
 
   set {
