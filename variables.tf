@@ -12,7 +12,7 @@ variable "namespace" {
 variable "argocd_chart_version" {
   description = "Version of ArgoCD chart to install"
   type        = string
-  default     = "5.23.5" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
+  default     = "5.27.1" # See https://artifacthub.io/packages/helm/argo/argo-cd for latest version(s)
 }
 
 # Helm chart deployment can sometimes take longer than the default 5 minutes
@@ -42,6 +42,6 @@ variable "enable_dex" {
 
 variable "insecure" {
   type        = bool
-  description = "Disable TLS on the ArogCD API Server? (adds the --insecure flag to the argocd-server command)"
+  description = "Disable TLS on the ArogCD API Server?"
   default     = false
 }
